@@ -5,21 +5,21 @@ hamburger.addEventListener('click', () => {
     nav.classList.toggle('show');
 });
 
-// Ruta de la carpeta de imágenes
-const carpetaImagenes = '../img/fondos';
-const imagenes = ['2025-01-04_19.34.24.png', '2025-01-06_09.51.46.png']; // Lista de imágenes
-let indiceActual = 0;
-const intervalo = 5 * 60 * 1000; // 5 minutos en milisegundos
+ // Lista de imágenes para el fondo
+    const imagenes = [
+        '../img/img/fondos/2025-01-04_19.34.24.png',
+        '../img/img/fondos/2025-01-06_09.51.46.png'
+    ];
 
-// Función para cambiar la imagen de fondo
-function cambiarFondo() {
+    let index = 0;
     const fondo = document.getElementById('fondo');
-    fondo.style.backgroundImage = `url('${carpetaImagenes}${imagenes[indiceActual]}')`;
-    indiceActual = (indiceActual + 1) % imagenes.length; // Cicla a la siguiente imagen
-}
 
-// Cambia el fondo inmediatamente al cargar la página
-cambiarFondo();
+    // Función para cambiar el fondo cada 5 minutos
+    function cambiarFondo() {
+        fondo.style.backgroundImage = `url(${imagenes[index]})`;
+        index = (index + 1) % imagenes.length; // Avanza al siguiente índice y reinicia si es necesario
+    }
 
-// Cambia el fondo cada 5 minutos
-setInterval(cambiarFondo, intervalo);
+    // Cambiar el fondo inmediatamente y luego cada 5 minutos (300000 ms)
+    cambiarFondo();
+    setInterval(cambiarFondo, 300000);
