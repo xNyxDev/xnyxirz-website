@@ -6,7 +6,7 @@ hamburger.addEventListener('click', () => {
 });
 
 // Ruta de la carpeta de imágenes
-const carpetaImagenes = 'img/fondos';
+const carpetaImagenes = '../img/fondos';
 const imagenes = ['2025-01-04_19.34.24.png', '2025-01-06_09.51.46.png']; // Lista de imágenes
 let indiceActual = 0;
 const intervalo = 5 * 60 * 1000; // 5 minutos en milisegundos
